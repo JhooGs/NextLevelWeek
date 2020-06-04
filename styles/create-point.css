@@ -2,23 +2,28 @@
 
     width: 90%;
     max-width: 1100px;
-
+    /* Alinhamento de caixa pelo lado de fora */
     margin: 0 auto;
 }
 
 #page-create-point header {
+    /*magem do topo*/
     margin-top: 48px;
-
+    
     display: flex;
+    /* Cria um espaço entre os objetos */
     justify-content: space-between;
+    /* Alinha no centro da caixa os itens */
     align-items: center;
 }
 
 
 #page-create-point header a{
+    /*--tile-color é uma variavel de cor criada na main.css*/
     color: var(--title-color);
+    /*font-wight é o peso da fonte, vai alterando que voc ja percebe*/
     font-weight: bold;
-
+    /* O comando flex deixa a caixa "flexivel" */
     display: flex;
 }
 
@@ -31,4 +36,103 @@
     width: 20px;
     height: 24px;
 
+}
+
+form{
+    background-color: white;
+    margin: 80px auto;
+    /*preenchimento da caixa*/
+    padding: 64px;
+    /* Arredondamento das bordas */
+    border-radius: 8px;
+
+    max-width: 730px;
+    /* Limita que padding para que não aumente a box além da borda */ 
+}
+
+
+form h1{
+    font-size: 36px;
+}
+
+form fieldset{
+    margin-top: 64px;
+
+    border: 0;
+}
+
+form legend{
+    margin-bottom: 40px;
+}
+
+form legend h2{
+    font-size: 24px;
+}
+
+form .field {
+    /* Faz os itens dentro da caixa preencher a mesma */
+    flex:1;
+    /* Flex coloca um elemento ao lado do outro */
+    display: flex;
+    /* Direciona a caixa flex para ficar em colunas */
+    flex-direction: column;
+
+    margin-bottom: 24px;
+}
+
+form .field-group{
+    display: flex;
+}
+
+/* Aplica as mesmas caracteristicas nos dois forms */
+form input,
+form select{
+    background-color: #f0f0f5;
+    
+    border: 0;
+    padding: 16px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+
+    /* Marca o campo em volta que for selecionado */
+    outline: hidden;
+}
+
+form select {
+    -webkit-appearance: none;
+    -moz-moz-appearance: none;
+    appearance: none;
+}
+
+
+form label{
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+/* Literalmente um campo está do lado do outro no formulário */
+form .field-group .field + .field{
+    margin-left: 24px;
+}
+
+form button{
+    width: 260px;
+    height: 56px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+
+    border: 0;
+
+    margin-top: 40px;
+
+    /* Tempo da transição entre uma cor e outra quando passar o mouse */
+    /* O background color serve para somente a cor ter transição e não todos os elementos*/
+    transition: background-color 400ms;
+}
+/* Efeito de passar o mouse em cima */
+form button:hover{
+    background-color: #2fb86e;
 }
