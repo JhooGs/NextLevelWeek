@@ -46,5 +46,54 @@ document
 
 
     //Itens de coleta
+    //Pegar todos os li's
+    const itemsToCollect = document.querySelectorAll(".items-grid li")
 
-    
+    for (item of itemsToCollect) {
+        item.addEventListener("click",handSelectedItem)
+    }
+
+    const collectedItems =  document.querySelector("input[name=items]")
+
+    let selectedItems = []
+
+
+        function handSelectedItem(event){
+            
+            const itemLi = event.target
+            //adicionar ou remover uma classe com javascript
+            itemLi.classList.toggle("selected")
+            
+            const itemId = itemLi.dataset.id
+
+            
+
+        //Verificar se existem itens selsecionados, se sim
+        // Pegar os itens selecionados
+        //essa function(item) é uma função anonima
+        //Mas posso simplificar com a arrow e como so tem uma propriedade 
+        //eu posso tirar os ()
+        const alreadySelected = selectedItems.findIndex(item =>{
+            /* Faz a verificação se o itemId já existe no array selectedItems */
+            return item == itemId
+        })
+
+        //Se ja estiver selecionado tirar da seleção
+        /* Verifica se o index existe no array */
+        if(alreadySelected >= 0){
+            const filtereditems = selectedItems.filter(item =>{
+                const itemIsDifferent = item != itemId //isso será true ou false
+                return itemIsDifferent
+            })
+            selectedItems = filtereditems
+        }else{
+            //Se não estiver selecionado, adicionar a seleção
+            /* Push coloca dentro do array o valor */
+            selectedItems.push(itemId)
+        }        
+        //Atualizar o campo escondido com os itens selecionados
+        collectedItems.value = selectedItems
+
+            
+        
+    }

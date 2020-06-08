@@ -190,3 +190,9 @@ só olhar la no html*/
     background: #e1faec;
     border: 2px solid #34cd79;
 }
+
+.items-grid li img,
+.items-grid li span{
+    /* Essa propriedade assume que o retorno do click na imagem seja uma só*/
+    pointer-events: none;
+}
