@@ -8,7 +8,7 @@ server.use(express.static("public"))
 
 //utilizando template engine, ele te permite utilizar laços de repetição e outros no html
 const nunjucks = require("nunjucks")
-nunjucks.configure("src/views",{
+nunjucks.configure("src/views", {
     express: server,
     noCache: true
 })
@@ -22,16 +22,16 @@ nunjucks.configure("src/views",{
 //req: Requisição
 //res: Resposta
 //Como a gente ligou o nunjucks com servidor express, ele já localiza as páginas com o render
-server.get("/", function(req, res)  {
-    return res.render("index.html", {title: "Um título louco"})
-} )
+server.get("/", function (req, res) {
+    return res.render("index.html")
+})
 
-server.get("/create-point", function(req, res)  {
+server.get("/create-point", function (req, res) {
     return res.render("create-point.html")
-} )
+})
 
-server.get("/search-results", function(req, res)  {
+server.get("/search", function (req, res) {
     return res.render("search-results.html")
-} )
+})
 
 server.listen(3000)

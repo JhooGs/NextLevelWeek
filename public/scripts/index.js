@@ -6,12 +6,12 @@ const close = document.querySelector("#modal .header a")
 
 /* O elemento addEventListener não funciona em lista ou seja 
 quando se usa o querySelectorAll */
-buttonSearch.addEventListener("click",()=>{
+buttonSearch.addEventListener("click", () => {
     /* classList lista as funções que podem ser usadas em cima do retorno modal  */
     modal.classList.remove("hide")
 })
 
 
-close.addEventListener("click", ()=>{
+close.addEventListener("click", () => {
     modal.classList.add("hide")
-})
+})  
