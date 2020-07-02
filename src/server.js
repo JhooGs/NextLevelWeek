@@ -8,6 +8,9 @@ const db = require("./database/db.js")
 //configurar pasta publica 
 server.use(express.static("public"))
 
+//Habilitar o uso do req.body na nossa aplicação
+server.use(express.urlencoded({ extended: true}))
+
 
 
 //utilizando template engine, ele te permite utilizar laços de repetição e outros no html
@@ -31,8 +34,60 @@ server.get("/", function (req, res) {
 })
 
 server.get("/create-point", function (req, res) {
-    return res.render("create-point.html")
+
+    //req.query: Query strings da nossa url
+    //console.log(req.query)
+
+
+
+    return res.render("create-point.html",{saved: true})
 })
+
+server.post("/savepoint", function(req , res){
+
+    //req.body: O corpo do nosso formulário
+    //console.log(req.body)
+
+    //Inserir dados no banco de dados
+       //Inserir dados na tabela 
+    const query = `
+      INSERT INTO places (
+          image,
+          name,
+          address,
+          address2,
+          state,
+          city,
+          items) 
+          VALUES(?,?,?,?,?,?,?);
+      `
+
+   const values = [
+       req.body.image,
+       req.body.name,
+       req.body.address,
+       req.body.address2,
+       req.body.state,
+       req.body.city,
+       req.body.items
+
+   ]
+
+    function afterInsertData(err){
+       if(err){
+           return console.log(err)
+       }
+
+       console.log("Cadastrado com sucesso")
+       console.log(this)
+
+       return res.render("create-point.html",{saved: true})
+   } 
+
+   db.run(query,values, afterInsertData)
+})
+
+
 
 server.get("/search", function (req, res) {
 

@@ -66,7 +66,7 @@ document
             
             const itemId = itemLi.dataset.id
 
-            
+            console.log('ITEM ID:', itemId)
 
         //Verificar se existem itens selsecionados, se sim
         // Pegar os itens selecionados
@@ -91,6 +91,8 @@ document
             /* Push coloca dentro do array o valor */
             selectedItems.push(itemId)
         }        
+
+        console.log('selectedItems: ', selectedItems)
         //Atualizar o campo escondido com os itens selecionados
         collectedItems.value = selectedItems
 
