@@ -106,3 +106,14 @@ que o hide está dentro do model */
     background-color: #2fb85e;
 }
 
+/* Este passo é para mostrar o modal de Cadastro concluído*/
+#modal.point .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modal.point h1{
+    color: white;
+    margin-top: 32px;
+}

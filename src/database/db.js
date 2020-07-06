@@ -15,7 +15,7 @@ module.exports = db
 //node src/database/db.js
 // utilizar o obejto de banco de dados para nossas operações 
 //serialize significa que ele vai executar uma sequencia de códigos
- /*db.serialize(()=>{
+/*db.serialize(()=>{
     //Criar uma tabela
     //A crase ` serve para rodar o código com quebra de linha 
      db.run(`
@@ -30,6 +30,7 @@ module.exports = db
             items TEXT
         );
         `)
+        
     //Inserir dados na tabela 
     const query = `
         INSERT INTO places (
@@ -62,7 +63,7 @@ module.exports = db
         console.log(this)
     } 
 
-    //db.run(query,values, afterInsertData)
+    db.run(query,values, afterInsertData)
 
     //Consultar dados na tabela
 

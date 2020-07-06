@@ -118,15 +118,16 @@
         <button type="submit">Cadastrar ponto de coleta</button>
 
     </form>
+  
+{% endblock content %}
 
-    {# Caso dê certo a inserção no banco vamos mandar um objeto saved como true #}
+{% block modal%}
+        {# Caso dê certo a inserção no banco vamos mandar um objeto saved como true #}
     {% if saved %}
         {%include "partials/point-created.html"%}
     {% endif %}
-    
-    
+{% endblock modal %}
 
-{% endblock content %}
 
 {% block scripts %}
     <script src="scripts/create-point.js"></script>
